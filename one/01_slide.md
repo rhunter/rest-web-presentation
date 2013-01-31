@@ -1,13 +1,6 @@
 !SLIDE 
 # REST and the Web #
 
-!SLIDE bullets incremental
-# Bullet Points #
-
-* first point
-* second point
-* third point
-
 !SLIDE
 I’m going to explain hypermedia types by looking at some examples that are probably already familiar.
 
