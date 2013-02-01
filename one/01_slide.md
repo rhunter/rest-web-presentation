@@ -22,17 +22,21 @@ The World-Wide Web is the biggest best example of hypermedia
 
 !SLIDE bullets
 # “What was it that kept that working?” #
-A set of architectural constraints
-A set of known trade-offs (worse latency for better cacheability)
+
+* A set of architectural constraints
+* A set of known trade-offs (worse latency for better cacheability)
 
 Roy Fielding’s thesis introduced the term “REST” to describe architectures that accepted these constraints.
 
-!SLIDE bullets
+!SLIDE smbullets
 # What REST is not #
-* Not about nice, human-friendly URLs (they’re great, but irrelevant to REST)
-* Not about CRUD operations with POST/GET/PUT/DELETE (great but not all of it)
-* It’s not even necessarily over HTTP (it’s a great, established implementation option)
-* Definitely not a silver bullet
+
+Not about nice, human-friendly URLs (they’re great, but irrelevant to REST)
+
+Not about CRUD operations with POST/GET/PUT/DELETE (great but not all of it)
+It’s not even necessarily over HTTP (it’s a great, established implementation option)
+
+_Definitely not a silver bullet_
 
 
 
@@ -190,7 +194,8 @@ It’s polite to submit to IANA or use a URL instead
 !SLIDE
 # Media types #
 
-Agreed beforehand, ideally in a spec, ideally with multiple independent implementations
+Agreed beforehand, ideally in a spec, ideally with multiple independent
+implementations
 
 Describe a processing model (“how do I do something with this?”)
 
@@ -260,6 +265,9 @@ JSON is a notation with no semantics of its own.
 *Not* plain old XML (no links)
 *Not* plain old JSON (no links)
 
+!SLIDE subsection
+# ATOM #
+
 !SLIDE
 # Atom is great #
 
@@ -291,6 +299,10 @@ A list of arbitrary “things” (HTML is popular)
       </item>
     </feed>
 
+!SLIDE subsection
+# HTML #
+
+!SLIDE smbullets
 
 !SLIDE smbullets
 # HTML is great #
@@ -328,9 +340,16 @@ A list of arbitrary “things” (HTML is popular)
         </a>
       </li>
     </ol>
+
+
+!SLIDE
+# HTML form
     <form action=“/people” method=“post”>
       <input name=“name” type=“text”>
     </form>
+
+!SLIDE subsection
+# HAL #
 
 !SLIDE smbullets
 # HAL is new #
@@ -348,19 +367,20 @@ A list of arbitrary “things” (HTML is popular)
 # HAL #
     @@@javascript
     {
+      _links: {“self”: {href: “/people”}
       people: [
-    {_links: [{rel: “self”, href: “/foo”}], Name: “John Foo”},
-    {_links: [{rel: “self”, href: “/bar”}], Name: “Barry Bar”}
-    {_links: [{rel: “self”, href: “/baz”}], Name: “Bruce Baz”}
-      ],
-      _controls: [
-      Rel: “create”,
-      Href: “/people”
-      Template: {
-        Name: “”
-      },
-    _links: [{rel: “self”, href: “/people”}]
+        {
+          _links: {self: {href: “/foo”}},
+          name: “John Foo”
+        },{
+          _links: {self: {href: “/bar”}},
+          name: “Barry Bar”
+        },{
+          _links: {self: {href: “/baz”}},
+          name: “Bruce Baz”
+        }
       ]
+    }
 
 !SLIDE
 # JSON-LD #
@@ -393,20 +413,21 @@ RDF
 
     @@@javascript
     {
-      Items: [
-    {Name: “John Foo”},
-    {Name: “Barry Bar”},
-    {Name: “Bruce Baz”}
+      items: [
+        {name: “John Foo”},
+        {name: “Barry Bar”},
+        {name: “Bruce Baz”}
       ]
-      Links: [
-      Rel: “create”,
-      Form: {
-        Type: “application/x-www-formencoding”,
-        Inputs: [
-          {Name: {type: “string”, mandatory: true}}
-        ]
-      }
+      links: [
+        rel: “create”,
+        form: {
+          Type: “application/x-www-formencoding”,
+          Inputs: [
+            {name: {type: “string”, mandatory: true}}
+          ]
+        }
       ]
+    }
 
 !SLIDE
 Questions? Observations?
