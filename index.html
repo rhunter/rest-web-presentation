@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>My Preso</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" />
+
+  <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  
+    
+      <script type="text/javascript" src="./js/sh_lang/sh_ruby.min.js"></script>
+    
+      <script type="text/javascript" src="./js/sh_lang/sh_html.min.js"></script>
+    
+      <script type="text/javascript" src="./js/sh_lang/sh_xml.min.js"></script>
+    
+      <script type="text/javascript" src="./js/sh_lang/sh_javascript.min.js"></script>
+    
+  
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+    <tr><td class="key">P</td><td>toggle pause</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="one/01_slide/1">
+<h1>The REST of the Web</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/2">
+<p>I&#x2019;m going to explain hypermedia types by looking at some examples that are probably already familiar.</p>
+
+<h2>I&#x2019;ll assume that you&#x2019;re comfortable with:</h2>
+
+<ul>
+<li>Using the World-Wide Web</li>
+<li>HTTP requests and responses</li>
+<li>URLs (at least http:// URLs)</li>
+<li>JSON and XML</li>
+<li>Atom/RSS feeds (you'll get by without)</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/3">
+<p>The World-Wide Web is the biggest best example of hypermedia</p>
+
+<h1>&#x201C;Gosh, that works pretty well&#x201D;</h1>
+
+<ul>
+<li>In use for about twenty years</li>
+<li>Lots of different clients over the years</li>
+<li>Lots of unrelated servers</li>
+<li>Capabilities have evolved pretty seriously (Images! Forms! Scripting! Styling!)</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="one/01_slide/4">
+<h1>&#x201C;What was it that kept that working?&#x201D;</h1>
+
+<ul>
+<li>A set of architectural constraints</li>
+<li>A set of known trade-offs (worse latency for better cacheability)</li>
+</ul>
+
+<p>Roy Fielding&#x2019;s thesis introduced the term &#x201C;REST&#x201D; to describe architectures that accepted these constraints.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="one/01_slide/5">
+<h1>What REST is not</h1>
+
+<p>Not about nice, human-friendly URLs (they&#x2019;re great, but irrelevant to REST)</p>
+
+<p>Not about CRUD operations with POST/GET/PUT/DELETE (great but not all of it)
+It&#x2019;s not even necessarily over HTTP (it&#x2019;s a great, established implementation option)</p>
+
+<p><em>Definitely not a silver bullet</em></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/6">
+<h1>But REST is awesome, shouldn&#x2019;t we use it everywhere?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/7">
+<p>REST architectures accept a known set of trade-offs.</p>
+
+<h1>Do those trade-offs make sense?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/8">
+<h1>HTTP API trade-offs</h1>
+
+<ul>
+<li>SOAP/WS-*</li>
+<li>RPC</li>
+<li>HTTP Type I</li>
+<li>HTTP Type II</li>
+<li>Full-blown REST</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/9">
+<h1>The Web has a REST architecture</h1>
+
+<h2>Established specs:</h2>
+
+<ul>
+<li>HTML (+ CSS + JavaScript)</li>
+<li>URIs</li>
+<li>HTTP</li>
+<li>TLS (SSL)</li>
+<li>TCP/IP</li>
+</ul>
+
+<p>Limited operations (GET/POST) on unlimited resources</p>
+
+<p>The browser doesn&#x2019;t have any knowledge of what a resource &#x201C;means&#x201D; nor does it need to take apart URLs, nor make new URLs</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/10">
+<h1>HTTP is a pretty mature protocol</h1>
+
+<ul>
+<li>Ubiquitous - Library support everywhere</li>
+<li>Cache-friendly - multi-layer, transparent, advanced controls</li>
+<li>Troubleshooting-friendly - plain text, dates, user agents, proxyable, forwarded-for</li>
+<li>Layered - use whatever content types you want, HTTP doesn&#x2019;t care</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/11">
+<h1>URIs are a pretty universal way of indicating a resource</h1>
+
+<ul>
+<li>Scheme (&#x201C;what are we even talking about here?&#x201D;)</li>
+<li>Authority (only this guy is allowed to muck with it)</li>
+<li>Path (hierarchical + non-heirarchical)</li>
+<li>Query</li>
+<li>Fragment</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/12">
+<p>Everyone knows regular Web pages, but you can universally locate:</p>
+
+<ul>
+<li>Files on an FTP server</li>
+<li>SSH-protocol files</li>
+<li>Git-protocol git repositories</li>
+<li>Even content-based addressing
+
+<ul>
+<li>data-uri for long</li>
+<li>magnet links for short</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/13">
+<p>You can indicate resources that aren&#x2019;t necessarily &#x201C;located&#x201D; anywhere:</p>
+
+<ul>
+<li>Email addresses</li>
+<li>Phone numbers</li>
+<li>Chat rooms</li>
+<li>Books (ISBN or ISSN)</li>
+<li>American social security numbers</li>
+<li>XML namespaces</li>
+</ul>
+
+<p>&#x2026;But often it&#x2019;s more useful to talk about someone&#x2019;s idea of it</p>
+
+<ul>
+<li>urn:isbn:991911919
+vs</li>
+<li>http://amazon.com/book/isbn/991911919</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/14">
+<h1>Composable</h1>
+
+<p>Just like relative URLs in web pages.
+When you&#x2019;re on
+<code>http://example.com/houses/for-sale/1</code></p>
+
+<table>
+<tr><th>Then...</th><th>... goes to ...</th></tr>
+<tr><td>/news</td><td>http://example.com/news</td></tr>
+<tr><td>../for-rent</td><td>../for-rent</td></tr>
+<tr><td>#agent</td><td>#agent</td></tr>
+<tr><td>?detail=full</td><td>?detail=full</td></tr>
+<tr><td>2</td><td>2</td></tr>
+<tr><td>//other.exeample.com</td><td>http://other.example.com/</td></tr>
+</table>
+
+<h2>Trivial with pretty much every library and platform</h2>
+
+<pre class="sh_ruby"><code>
+#{current_uri + '/news'}</code></pre>
+
+<p class="notes">&#x2026;Except JavaScript in the browser.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/15">
+<h1>Link Semantics</h1>
+
+<p>But what&#x2019;s at that URL? Why would I go there?</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/16">
+<h1>Relationships</h1>
+
+<pre class="sh_html"><code>&lt;link rel=&#x201C;stylesheet&#x201D; href=&#x201C;pretty.css&#x201D;&gt;</code></pre>
+
+<p><code>pretty.css</code> is a <em>stylesheet</em> for this document</p>
+
+<pre class="sh_html"><code>&lt;link rel=&#x201C;icon&#x201D; href=&#x201C;favicon.ico&#x201D;&gt;</code></pre>
+
+<p><code>favicon.ico</code> is an <em>icon</em> for this document</p>
+
+<pre class="sh_html"><code>&lt;link rel=&#x201C;alternate&#x201D; href=&#x201C;index.atom&#x201D;
+      type=&#x201C;application/atom+xml&#x201D;&gt;</code></pre>
+
+<p><code>index.atom</code> is an <em>alternative</em> to this document</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="one/01_slide/17">
+<p><em>This thing</em> has <em>this relationship</em> to <em>that thing</em>
+(subject, relationship, object)
+* An &#x201C;RDF Triple&#x201D; (Resource Description Format)</p>
+
+<p>There are special databases called &#x201C;triple stores&#x201D; for storing and querying these networks</p>
+
+<ul>
+<li>Semantic Web folks say triples are the essence of it all</li>
+<li>RDF is an XML format to express triples</li>
+<li>RDF is a big part of RSS</li>
+<li>JSON-LD brings RDF-style triples to JSON</li>
+</ul>
+
+<p>Master list of unqualified relationships maintained by IANA</p>
+
+<p>It&#x2019;s polite to submit to IANA or use a URL instead</p>
+
+<p>&#x2026; but humans prefer shorter names</p>
+
+<p>&#x2026; lots of people prefer to pretend their custom thing is global</p>
+
+<p>&#x2026; CURie tries to strike a balance</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/18">
+<h1>Media types</h1>
+
+<p>Agreed beforehand, ideally in a spec, ideally with multiple independent
+implementations</p>
+
+<p>Describe a processing model (&#x201C;how do I do something with this?&#x201D;)</p>
+
+<p>May describe semantics (HTML) or not (PDF)</p>
+
+<p>Hard to design; easy to use</p>
+
+<p>Most applications don't need very many</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/19">
+<p>Armed with just HTML/CSS specs and your human mind, your browser supports:</p>
+
+<ul>
+<li>Web searches</li>
+<li>forum posts</li>
+<li>Wikipedia</li>
+<li>Internet banking</li>
+</ul>
+
+<p>Web spiders can index lots of the Web without knowing the difference too</p>
+
+<p>Web spiders armed with a bit more knowledge can extract more</p>
+
+<p>&#x2026; eg sitemap, the &#x201C;review&#x201D; microformat, RDF, OpenGraph (Facebook)</p>
+
+<p>Only robots with very specific knowledge can interact with complex stateful workflows</p>
+
+<p>&#x2026; eg forum spam bots</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/20">
+<p>Armed with just RSS and Atom, your feed reader supports:</p>
+
+<ul>
+<li>Blogs</li>
+<li>Online Newspapers</li>
+<li>Podcasts</li>
+<li>Jenkins build status</li>
+<li>Twitter favourites</li>
+</ul>
+
+<p>If all these things can be processed with just a couple of media types,
+we can probably make do.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/21">
+<h1>Media types on the World Wide Web</h1>
+
+<ul>
+<li>HTML (the big one)</li>
+<li>Defined in W3C standards</li>
+<li>Images (GIF, JPEG, PNG)</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Plain text, PostScript and PDF, Word documents</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="one/01_slide/22">
+<h1>Hypertext-friendly media types</h1>
+
+<p>HTML (basically the canonical hypertext media type - has links, forms)</p>
+
+<p>XHTML (same thing but has sockets for other things)</p>
+
+<p>AtomPub (links)</p>
+
+<p>Even PDF and Word documents</p>
+
+<p class="notes">But you wouldn&#x2019;t consider them for most APIs</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/23">
+<h1>What about XML and JSON?</h1>
+
+<p>XML is a markup language with no semantics of its own.
+JSON is a notation with no semantics of its own.
+<em>Not</em> plain old XML (no links)
+<em>Not</em> plain old JSON (no links)</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="one/01_slide/24">
+<h1>ATOM</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/25">
+<h1>Atom is great</h1>
+
+<p>A list of arbitrary &#x201C;things&#x201D; (HTML is popular)</p>
+
+<ul>
+<li>Supports links</li>
+<li>Specifies how to make and change &#x201C;things&#x201D;</li>
+<li>Specifies paging and archiving too (extension spec)</li>
+<li>Roy Fielding likes it</li>
+<li>Relatively popular library support
+
+<ul>
+<li>&#x2026; but it&#x2019;s XML and XML is out of fashion (fun fact: 4 in 5 rubyists are allergic to XML)</li>
+<li>&#x2026; but the libraries usually only support either reading or writing</li>
+<li>&#x2026; but the libraries seldom support paging and archiving</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/26">
+<h1>ATOM</h1>
+
+<pre class="sh_xml"><code>&lt;feed
+  xmlns:xn=&#x201C;http://example.org/named-person&#x201D;&gt;
+  &lt;item&gt;
+    &lt;xn:name&gt;John Foo&lt;/xn:name&gt;
+  &lt;/item&gt;
+  &lt;item&gt;
+    &lt;xn:name&gt;Barry Bar&lt;/xn:name&gt;
+  &lt;/item&gt;
+  &lt;item&gt;
+    &lt;xn:name&gt;Bruce Baz&lt;/xn:name&gt;
+  &lt;/item&gt;
+&lt;/feed&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="one/01_slide/27">
+<h1>HTML</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="one/01_slide/28">
+<h1>HTML is great</h1>
+
+<ul>
+<li>Super well supported &#x2014; everything works with it</li>
+<li>Really familiar model &#x2014; everyone works with it</li>
+<li>Supports links</li>
+<li>Supports forms (limited but good enough)</li>
+<li>Supports &#x201C;a list of things&#x201D;
+
+<ul>
+<li>&#x2026; But those things have to be more HTML</li>
+<li>&#x2026; XHTML</li>
+</ul></li>
+<li>Designed for humans first, machines second
+
+<ul>
+<li>&#x2026; Often designed for sighted humans using a visual browser with a mouse and keyboard</li>
+</ul></li>
+<li>Better at marking up text than data structures
+
+<ul>
+<li>&#x2026; Although there are ways to make it easier (microformats, XHTML)</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/29">
+<h1>HTML</h1>
+
+<pre class="sh_html"><code>&lt;ol&gt;
+  &lt;li&gt;
+    &lt;a href=&#x201C;/foo&#x201D; class=&#x201C;xn-name&#x201D;&gt;
+      John Foo
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&#x201C;/foo&#x201D; class=&#x201C;xn-name&#x201D;&gt;
+      Barry Bar
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&#x201C;/foo&#x201D; class=&#x201C;xn-name&#x201D;&gt;
+      Bruce Baz
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/30">
+<h1>HTML form</h1>
+
+<pre><code>&lt;form action=&#x201C;/people&#x201D; method=&#x201C;post&#x201D;&gt;
+  &lt;input name=&#x201C;name&#x201D; type=&#x201C;text&#x201D;&gt;
+&lt;/form&gt;
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="one/01_slide/31">
+<h1>HAL</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="one/01_slide/32">
+<h1>HAL is new</h1>
+
+<ul>
+<li>Like HTML but for computers first</li>
+<li>Has a JSON encoding and an XML encoding</li>
+<li>Supports links
+
+<ul>
+<li>&#x2026; Including URI templating</li>
+<li>&#x2026; but no forms (separate spec, not finished yet)</li>
+</ul></li>
+<li>Tool support is present
+
+<ul>
+<li>&#x2026; but not standardised yet</li>
+<li>&#x2026; Check out the HAL Browser</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/33">
+<h1>HAL</h1>
+
+<pre class="sh_javascript"><code>{
+  _links: {&#x201C;self&#x201D;: {href: &#x201C;/people&#x201D;}
+  people: [
+    {
+      _links: {self: {href: &#x201C;/foo&#x201D;}},
+      name: &#x201C;John Foo&#x201D;
+    },{
+      _links: {self: {href: &#x201C;/bar&#x201D;}},
+      name: &#x201C;Barry Bar&#x201D;
+    },{
+      _links: {self: {href: &#x201C;/baz&#x201D;}},
+      name: &#x201C;Bruce Baz&#x201D;
+    }
+  ]
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/34">
+<h1>JSON-LD</h1>
+
+<p>Like JSON but with explicit markers for &#x201C;what does this mean&#x201D;. 
+Doesn&#x2019;t have form semantics, although it does assume JSONSchema so it&#x2019;s a natural leap to using them for POSTs.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/35">
+<pre class="sh_javascript"><code>{
+people: [
+  {@Id: &#x201C;xn:person&#x201D;, Name: &#x201C;John Foo&#x201D;},
+  {@Id: &#x201C;xn:person&#x201D;, Name: &#x201C;Barry Bar&#x201D;},
+  {@Id: &#x201C;xn:person&#x201D;, Name: &#x201C;Bruce Baz&#x201D;},
+]
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/36">
+<h1>Other options</h1>
+
+<p>RDF</p>
+
+<ul>
+<li>Make your own
+
+<ul>
+<li>(XML+XLink+XForms)</li>
+<li>(JSON+JSONSchema+your own links+your own forms)</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/37">
+<h1>One format I've used</h1>
+
+<h2>JSON + JSONSchema + your own links + your own forms</h2>
+
+<pre class="sh_javascript"><code>{
+  items: [
+    {name: &#x201C;John Foo&#x201D;},
+    {name: &#x201C;Barry Bar&#x201D;},
+    {name: &#x201C;Bruce Baz&#x201D;}
+  ]
+  links: [
+    rel: &#x201C;create&#x201D;,
+    form: {
+      Type: &#x201C;application/x-www-formencoding&#x201D;,
+      Inputs: [
+        {name: {type: &#x201C;string&#x201D;, mandatory: true}}
+      ]
+    }
+  ]
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/38">
+<p>Questions? Observations?</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/39">
+<p>Thanks.</p>
+</div>
+</div></div>
+<div id="pauseScreen">
+  
+</div>
+
+</body>
+</html>
