@@ -1,5 +1,5 @@
 !SLIDE 
-# REST and the Web #
+# The REST of the Web #
 
 !SLIDE
 I’m going to explain hypermedia types by looking at some examples that are probably already familiar.
@@ -201,7 +201,10 @@ Describe a processing model (“how do I do something with this?”)
 
 May describe semantics (HTML) or not (PDF)
 
-Kept to a minimum
+Hard to design; easy to use
+
+Most applications don't need very many
+
 
 !SLIDE
 Armed with just HTML/CSS specs and your human mind, your browser supports:
